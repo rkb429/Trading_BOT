@@ -1,0 +1,170 @@
+# ============================================================================
+# Coin AI Bot - 고정 의존성 목록 (재현 가능한 빌드용)
+# 업그레이드 시: pip install -U <package> 후 버전 확인 및 이 파일 갱신
+# 최소 버전 제약만 필요할 경우: requirements-min.txt 참조
+# ============================================================================
+
+# --- Exchange & API ---
+pyupbit==0.2.33
+ccxt==4.4.31
+websockets==13.1
+requests==2.32.3
+
+# --- Data Science & Analysis ---
+pandas==2.2.3
+numpy==2.1.3
+pytz==2024.2
+
+# --- Reliable Persistence Layer (추가) ---
+# active_fleet_state.json의 불안정성을 대체할 비동기 DB 엔진
+# Institutional Grade 도달을 위한 ACID 트랜잭션 보장
+aiosqlite==0.20.0
+SQLAlchemy==2.0.36
+
+# --- High-Performance Async Loop (추가) ---
+# Linux 환경에서 I/O 지연 시간을 마이크로초 단위로 단축 (Windows 제외)
+uvloop==0.21.0; sys_platform != 'win32'
+
+# --- Telegram Bot Framework (고도화) ---
+# 단순 requests 방식보다 안정적인 재시도 및 핸들링 보장
+python-telegram-bot==21.8
+
+# --- Machine Learning & Stats ---
+xgboost==2.1.3
+lightgbm==4.5.0
+optuna==4.1.0
+scikit-learn==1.5.2
+hmmlearn==0.3.3
+joblib==1.4.2
+
+# --- Advanced Validation & Data Integrity (신규 추가) ---
+# API 응답 스키마 검증 및 config.py의 런타임 타입 체크 강제
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# --- Strategy & Backtest ---
+backtrader==1.9.78.123
+matplotlib==3.9.3
+
+# --- Infrastructure & Utils ---
+python-dotenv==1.0.1
+schedule==1.2.2
+
+# --- Production Logging & Monitoring (추가) ---
+# 이전 지적 사항인 '로그 로테이션' 및 구조화된 로깅 자동화
+loguru==0.7.2
+
+# --- Technical Analysis (Standard) ---
+# Windows: pip install TA-Lib 전 https://github.com/cgohlke/talib-build 에서 wheel 다운로드 필요
+TA-Lib==0.4.32
+
+# --- Async Helper (For CCXT Async) ---
+aiohttp==3.11.10
+
+# --- Process Management (For Auto-Retrain Lock) ---
+psutil==6.1.0
+
+# --- Auth (For UpbitRiskManager JWT) ---
+PyJWT==2.10.1
+
+# --- Testing ---
+pytest==8.3.4
+
+# --- Infrastructure & Utils (수정) ---
+# 기존 schedule은 동기식 블로킹을 유발하므로 비동기 전용 스케줄러로 교체
+# 모델 재학습(auto_retrain.py) 시 메인 매매 루프를 방해하지 않음
+apscheduler==3.11.0
+
+# --- Performance Optimization (신규 추가) ---
+# 기관급 지연시간 제어를 위해 기본 json 대신 C기반 초고속 파싱 적용
+# API 응답 및 fleet_state.json 처리 속도 3~5배 향상
+orjson==3.10.11
+
+# --- Technical Analysis (수정 권고) ---
+# Windows 환경에서 TA-Lib 설치 실패 리스크를 방어하기 위한 바이너리 버전
+# (pip install talib-binary 명령으로 대체 가능)
+talib-binary==0.4.32
+
+
+
+---------------------------------------------------------------------------------------------------
+aiodns              4.0.0
+aiohappyeyeballs    2.6.1
+aiohttp             3.10.11
+aiosignal           1.4.0
+aiosqlite           0.20.0
+alembic             1.18.4
+annotated-types     0.7.0
+anyio               4.13.0
+APScheduler         3.11.0
+attrs               26.1.0
+backtrader          1.9.78.123
+ccxt                4.4.31
+certifi             2026.4.22
+cffi                2.0.0
+charset-normalizer  3.4.7
+colorama            0.4.6
+colorlog            6.10.1
+contourpy           1.3.3
+cryptography        48.0.0
+cycler              0.12.1
+fonttools           4.62.1
+frozenlist          1.8.0
+greenlet            3.5.0
+h11                 0.16.0
+hmmlearn            0.3.3
+httpcore            1.0.9
+httpx               0.28.1
+idna                3.13
+iniconfig           2.3.0
+joblib              1.4.2
+kiwisolver          1.5.0
+lightgbm            4.5.0
+loguru              0.7.2
+Mako                1.3.12
+MarkupSafe          3.0.3
+matplotlib          3.9.3
+multidict           6.7.1
+numpy               2.1.3
+optuna              4.1.0
+orjson              3.10.11
+packaging           26.2
+pandas              2.2.3
+pillow              12.2.0
+pip                 26.1.1
+pluggy              1.6.0
+propcache           0.4.1
+psutil              6.1.0
+pycares             5.0.1
+pycparser           3.0
+pydantic            2.10.3
+pydantic_core       2.27.1
+pydantic-settings   2.6.1
+PyJWT               2.10.1
+pyparsing           3.3.2
+pytest              8.3.4
+python-dateutil     2.9.0.post0
+python-dotenv       1.0.1
+python-telegram-bot 21.8
+pytz                2024.2
+pyupbit             0.2.33
+PyYAML              6.0.3
+requests            2.32.3
+scikit-learn        1.5.2
+scipy               1.17.1
+setuptools          65.5.0
+six                 1.17.0
+SQLAlchemy          2.0.36
+TA-Lib              0.4.32
+threadpoolctl       3.6.0
+tqdm                4.67.3
+typing_extensions   4.15.0
+tzdata              2026.2
+tzlocal             5.3.1
+urllib3             2.7.0
+websockets          13.1
+win32_setctime      1.2.0
+xgboost             2.1.3
+yarl==1.23.0
+
+talib-binary==0.4.32
