@@ -5,7 +5,6 @@
 ![asyncio](https://img.shields.io/badge/async-asyncio-green)
 ![ML](https://img.shields.io/badge/ML-XGBoost%20%C2%B7%20LightGBM-orange)
 ![Exchange](https://img.shields.io/badge/Exchange-Upbit%20%7C%20Binance-yellow)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 > 업비트(현물) + 바이낸스(선물)를 동시 운용하는 ML 기반 자동 매매 시스템.
 
